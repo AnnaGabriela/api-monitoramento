@@ -1,6 +1,6 @@
 import settings
 from flask import Flask, render_template, jsonify
-from requests.index import getDomes, getAttributes
+from database.requests import getDomes, getAttributes
 
 app = Flask(__name__)
 

@@ -1,4 +1,4 @@
-from settings import db
+from database.settings import db
 
 def getDomes():
     totalDomes = db.llen("cupulas")

@@ -1,13 +1,13 @@
-from settings import database
+from settings import db
 
 def getDomes():
-    totalDomes = database.llen("cupulas")
-    domes = database.lrange("cupulas", 0, totalDomes)
+    totalDomes = db.llen("cupulas")
+    domes = db.lrange("cupulas", 0, totalDomes)
     return {
         "totalDomes": totalDomes,
         "domes": domes
     }
 
 def getAttributes(cupula):
-    attributes = database.hgetall('{}'.format(cupula))
+    attributes = db.hgetall('{}'.format(cupula))
     return attributes

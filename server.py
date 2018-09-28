@@ -20,6 +20,10 @@ def cupulas():
 def cupula(cupula):
     if request.method == 'GET':
         return jsonify(getAttributes(cupula))
+    else: 
+        attribute = request.form['attribute']
+        value = request.form['value']
+        return setAttribute(cupula, attribute, value)
 
 if __name__ == '__main__':
     app.run(debug=True)

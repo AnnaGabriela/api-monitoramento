@@ -1,4 +1,4 @@
 .env
-lib
-bin
-__pycache__
+lib/
+bin/
+__pycache__/

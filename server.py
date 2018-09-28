@@ -11,7 +11,7 @@ def index():
 @app.route('/cupulas', methods=['GET', 'POST'])
 def cupulas():
     if request.method == 'GET':
-        return jsonify(getDomes())
+        return jsonify(getTotalDomes())
     else: 
         cupula = request.form['cupula']
         return setDome(cupula)

@@ -1,8 +1,9 @@
 from database.settings import db
 
-def getDomes():
-    totalDomes = db.llen("cupulas")
-    domes = db.lrange("cupulas", 0, totalDomes)
+domes = db.lrange("cupulas", 0, -1)
+totalDomes = db.llen("cupulas")
+
+def getTotalDomes():
     return {
         "totalDomes": totalDomes,
         "domes": domes
@@ -13,9 +14,12 @@ def getAttributes(dome):
     return attributes
 
 def setDome(dome):
-    res = db.lpush("cupulas", dome)
-    return "id: {}".format(str(res))
+    if dome not in domes:
+        id = db.lpush("cupulas", dome)
+        return "id: " + str(id)
+    else:
+        return "Already signed up."
 
 def setAttribute(dome, attribute, value):
-    res = db.hset(dome, attribute, value)
-    return "id: {}".format(str(res))
+    id = db.hset(dome, attribute, value)
+    return "id: " + str(id)

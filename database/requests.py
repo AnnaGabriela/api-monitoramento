@@ -1,6 +1,5 @@
 from database.settings import db
 
-
 def getTotalDomes():
     domes = db.lrange("cupulas", 0, -1)
     totalDomes = db.llen("cupulas")

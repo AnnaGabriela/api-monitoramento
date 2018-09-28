@@ -14,7 +14,8 @@ def cupulas():
         return jsonify(getDomes())
     else: 
         cupula = request.args.get('cupula')
-        return setDome(cupula)
+        return str(request.args)
+        # return setDome(cupula)
 
 @app.route('/cupulas/<cupula>', methods=['GET', 'POST'])
 def cupula(cupula):

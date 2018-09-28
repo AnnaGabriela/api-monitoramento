@@ -13,7 +13,7 @@ def cupulas():
     if request.method == 'GET':
         return jsonify(getTotalDomes())
     else:
-        cupula = request.form.get('cupula', None)
+        cupula = request.form.get('name')
         return setDome(cupula)
 
 @app.route('/cupulas/<cupula>', methods=['GET', 'POST'])
@@ -21,8 +21,8 @@ def cupula(cupula):
     if request.method == 'GET':
         return jsonify(getAttributes(cupula))
     else: 
-        attribute = request.form.get('attribute', None)
-        value = request.form.get('value', None)
+        attribute = request.form.get('attribute')
+        value = request.form.get('value')
         return setAttribute(cupula, attribute, value)
 
 if __name__ == '__main__':

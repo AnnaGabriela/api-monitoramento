@@ -1,9 +1,9 @@
 from database.settings import db
 
-domes = db.lrange("cupulas", 0, -1)
-totalDomes = db.llen("cupulas")
 
 def getTotalDomes():
+    domes = db.lrange("cupulas", 0, -1)
+    totalDomes = db.llen("cupulas")
     return {
         "totalDomes": totalDomes,
         "domes": domes
@@ -14,6 +14,7 @@ def getAttributes(dome):
     return attributes
 
 def setDome(dome):
+    domes = db.lrange("cupulas", 0, -1)
     if dome not in domes:
         id = db.lpush("cupulas", dome)
         return "id: " + str(id)

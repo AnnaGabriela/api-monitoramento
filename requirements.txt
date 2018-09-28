@@ -1,4 +1,0 @@
-Flask==1.0.2
-Flask-Cors==3.0.4
-python-dotenv==0.9.1
-redis==2.10.6

@@ -8,6 +8,14 @@ def getDomes():
         "domes": domes
     }
 
-def getAttributes(cupula):
-    attributes = db.hgetall('{}'.format(cupula))
+def getAttributes(dome):
+    attributes = db.hgetall('{}'.format(dome))
     return attributes
+
+def setDome(dome):
+    res = db.lpush("cupulas", dome)
+    return "id: {}".format(str(res))
+
+def setAttribute(dome, attribute, value):
+    res = db.hset(dome, attribute, value)
+    return "id: {}".format(str(res))
